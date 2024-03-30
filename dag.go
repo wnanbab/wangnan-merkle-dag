@@ -21,7 +21,7 @@ func Add(store KVStore, node Node, h hash.Hash) []byte {
 	//将分片写到KVstore中
 	//判断数据类型
 	switch n := node.(type) {
-	case FILE :
+	case FILE:
 		file := node.(File)  //将节点断言为 File 类型
         tmp := StoreFile(store, file, h)  //调用 StoreFile 函数将文件存储到 KVStore 中，得到存储结果 tmp
         jsonMarshal, _ := json.Marshal(tmp) // tmp 转换为 JSON 格式的字节切片
